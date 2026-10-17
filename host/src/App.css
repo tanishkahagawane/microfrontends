@@ -1,0 +1,200 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, Arial, sans-serif;
+  color: #1e293b;
+  background: #f1f5f9;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+/* Main application */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 8%;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04);
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  color: #2563eb;
+}
+
+/* Navigation */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Supports both nav-link and the current nav link class */
+.nav-link,
+.nav.link {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-link:hover,
+.nav.link:hover {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.nav-link:focus-visible,
+.nav.link:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+/* Active navigation item */
+.nav.link.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.nav.link.active:hover {
+  background: #1d4ed8;
+}
+
+/* Main content area */
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 8%;
+}
+
+/* Content panel */
+.panel {
+  width: 100%;
+  min-height: 220px;
+  padding: 32px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.04);
+  animation: fadeIn 0.25s ease;
+}
+
+.panel h1 {
+  margin-bottom: 16px;
+  color: #0f172a;
+  font-size: 1.8rem;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+
+.panel p {
+  line-height: 1.7;
+}
+
+/* Secondary text */
+.muted {
+  color: #64748b;
+  font-size: 0.95rem;
+}
+
+/* Subtle page transition */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive layout */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 18px 5%;
+  }
+
+  .brand {
+    font-size: 1.35rem;
+  }
+
+  .nav {
+    width: 100%;
+    gap: 4px;
+  }
+
+  .nav-link,
+  .nav.link {
+    flex: 1;
+    padding: 10px 8px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .main {
+    padding: 24px 5%;
+  }
+
+  .panel {
+    min-height: 180px;
+    padding: 24px 20px;
+    border-radius: 12px;
+  }
+
+  .panel h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

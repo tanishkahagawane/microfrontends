@@ -1,4 +1,4 @@
-# React Microfrontends 
+# React Microfrontends
 
 A practical demonstration of **Microfrontend Architecture** using **React, TypeScript, Vite, and Module Federation**. This project explores how to break a frontend monolith into independently deployable applications while maintaining a seamless user experience.
 
@@ -8,17 +8,17 @@ This project consists of a host application and two independent microfrontends: 
 
 ### Architecture
 
-| Application | Responsibility | Port |
-|---|---|---|
-| **Host / Shell** | Main entry point, layout, routing, and remote integration | `3000` |
-| **Products MF** | Product-related UI and functionality | `3001` |
-| **Cart MF** | Shopping cart functionality and state management | `3002` |
+| Application      | Responsibility                                            | Port   |
+| ---------------- | --------------------------------------------------------- | ------ |
+| **Host / Shell** | Main entry point, layout, routing, and remote integration | `5173` |
+| **Products MF**  | Product-related UI and functionality                      | `5174` |
+| **Cart MF**      | Shopping cart functionality and state management          | `5175` |
 
 ```text
                     ┌──────────────────────┐
                     │    Host / Shell      │
                     │    React + Vite      │
-                    │      Port 3000       │
+                    │      Port 5173       │
                     └──────────┬───────────┘
                                │
                   Module Federation
@@ -28,7 +28,7 @@ This project consists of a host application and two independent microfrontends: 
              ┌─────────▼──────┐ ┌──────▼─────────┐
              │  Products MF   │ │    Cart MF     │
              │  React + Vite  │ │  React + Vite  │
-             │   Port 3001    │ │   Port 3002    │
+             │   Port 5174    │ │   Port 5175    │
              └────────────────┘ └────────────────┘
 ```
 
@@ -111,11 +111,11 @@ Add suitable error handling for failed remote imports and unavailable remote app
 
 Start each application using its configured development script:
 
-| Application | URL |
-|---|---|
-| Host | `http://localhost:3000` |
-| Products MF | `http://localhost:3001` |
-| Cart MF | `http://localhost:3002` |
+| Application | URL                     |
+| ----------- | ----------------------- |
+| Host        | `http://localhost:5173` |
+| Products MF | `http://localhost:5174` |
+| Cart MF     | `http://localhost:5175` |
 
 Run the host and both remote applications simultaneously. Verify that the remote entry points are accessible and that the host can load the exposed components.
 
@@ -162,4 +162,3 @@ This project is based on the following video tutorial:
 **React Microfrontends Crash Course 2026**
 
 🎥 [Watch the video on YouTube](https://www.youtube.com/watch?v=JnK1fgBxIY8)
-
