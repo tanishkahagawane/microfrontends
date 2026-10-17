@@ -1,4 +1,4 @@
-# React Microfrontends Crash Course 2026
+# React Microfrontends 
 
 A practical demonstration of **Microfrontend Architecture** using **React, TypeScript, Vite, and Module Federation**. This project explores how to break a frontend monolith into independently deployable applications while maintaining a seamless user experience.
 
