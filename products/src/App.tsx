@@ -1,36 +1,52 @@
+import { useState } from "react";
+import { addProductToCart } from "@microshop/cart-contract";
 import "./App.css";
 
 type Product = {
-  id: number;
+  id: string;
   name: string;
-  price: string;
+  price: number;
 };
 
 const PRODUCTS: Product[] = [
-  { id: 1, name: "Wireless Headphones", price: "₹2,499" },
-  { id: 2, name: "Mechanical Keyboard", price: "₹3,499" },
-  { id: 3, name: "Wireless Mouse", price: "₹999" },
-  { id: 4, name: "USB-C Hub", price: "₹1,499" },
-  { id: 5, name: "Laptop Stand", price: "₹1,299" },
-  { id: 6, name: "Webcam HD", price: "₹2,199" },
+  { id: "p1", name: "Wireless Mouse", price: 29 },
+  { id: "p2", name: "Mechanical Keyboard", price: 89 },
+  { id: "p3", name: "USB-C Hub", price: 45 },
+  { id: "p4", name: "Monitor Stand", price: 39 },
+  { id: "p5", name: "Webcam HD", price: 59 },
+  { id: "p6", name: "Desk Lamp", price: 34 },
 ];
 
 function App() {
+  const [message, setMessage] = useState("");
+
+  const addToCart = (product: Product) => {
+    addProductToCart(product);
+    setMessage(`Added ${product.name} to cart`);
+  };
+
   return (
     <div className="app">
       <header className="header">
         <div>
-          <p className="eyebrow">Products MFE - Standalone</p>
+          <p className="eyebrow">Products MFE-standalone</p>
           <h1>Products</h1>
         </div>
       </header>
+
       <main className="main">
+        {message && <p className="toast">{message}</p>}
+
         <div className="grid">
           {PRODUCTS.map((product) => (
-            <article className="card" key={product.id}>
+            <article key={product.id} className="card">
               <h2>{product.name}</h2>
-              <p className="price">{product.price}</p>
-              <button type="button">Add to cart</button>
+
+              <p className="price">${product.price.toFixed(2)}</p>
+
+              <button type="button" onClick={() => addToCart(product)}>
+                Add to Cart
+              </button>
             </article>
           ))}
         </div>

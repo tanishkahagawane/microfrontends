@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@module-federation/vite": "^1.23.5",
+    "@microshop/cart-contract": "file:../shared",
     "react": "^19.2.8",
     "react-dom": "^19.2.8"
   },
