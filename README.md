@@ -10,15 +10,15 @@ This project consists of a host application and two independent microfrontends: 
 
 | Application      | Responsibility                                            | Port   |
 | ---------------- | --------------------------------------------------------- | ------ |
-| **Host / Shell** | Main entry point, layout, routing, and remote integration | `5173` |
-| **Products MF**  | Product-related UI and functionality                      | `5174` |
-| **Cart MF**      | Shopping cart functionality and state management          | `5175` |
+| **Host / Shell** | Main entry point, layout, routing, and remote integration | `3000` |
+| **Products MF**  | Product-related UI and functionality                      | `3001` |
+| **Cart MF**      | Shopping cart functionality and state management          | `3002` |
 
 ```text
                     ┌──────────────────────┐
                     │    Host / Shell      │
                     │    React + Vite      │
-                    │      Port 5173       │
+                    │      Port 3000       │
                     └──────────┬───────────┘
                                │
                   Module Federation
@@ -28,7 +28,7 @@ This project consists of a host application and two independent microfrontends: 
              ┌─────────▼──────┐ ┌──────▼─────────┐
              │  Products MF   │ │    Cart MF     │
              │  React + Vite  │ │  React + Vite  │
-             │   Port 5174    │ │   Port 5175    │
+             │   Port 3001    │ │   Port 3002    │
              └────────────────┘ └────────────────┘
 ```
 
@@ -113,9 +113,9 @@ Start each application using its configured development script:
 
 | Application | URL                     |
 | ----------- | ----------------------- |
-| Host        | `http://localhost:5173` |
-| Products MF | `http://localhost:5174` |
-| Cart MF     | `http://localhost:5175` |
+| Host        | `http://localhost:3000` |
+| Products MF | `http://localhost:3001` |
+| Cart MF     | `http://localhost:3002` |
 
 Run the host and both remote applications simultaneously. Verify that the remote entry points are accessible and that the host can load the exposed components.
 
